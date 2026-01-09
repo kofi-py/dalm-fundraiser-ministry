@@ -638,7 +638,7 @@ section {
 
 .event-date {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 1;
   margin-bottom: 0.5rem;
   position: relative;
@@ -710,10 +710,38 @@ section {
 }
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
   margin-top: 4rem;
+}
+
+.gallery-category-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: white;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.gallery-category-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent);
+}
+
+.gallery-items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
 }
 
 .gallery-item {
@@ -887,20 +915,6 @@ footer {
 
 .copyright {
   margin-top: 1rem;
-}
-
-/* ============================================
-   SCROLL REVEAL ANIMATION
-   ============================================ */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* ============================================

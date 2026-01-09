@@ -39,16 +39,16 @@ const impactProjects = [
         image: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800"
     },
     {
-        title: "Community Food Ministry",
-        location: "Connecticut",
-        description: "Monthly food distribution programs serving families in our local community. We provide fresh groceries, hot meals, and essential supplies to those experiencing food insecurity, reflecting Christ's love through action.",
+        title: "Youth Ministry",
+        location: "Connecticut & Worldwide",
+        description: "Empowering the next generation to lead with purpose and faith. Our youth ministry provides mentorship, leadership training, and a supportive community where young people can grow in their spiritual journey and develop their unique God-given talents.",
         stats: [
-            { number: "300+", label: "Families Monthly" },
-            { number: "12", label: "Distributions/Year" },
-            { number: "50+", label: "Volunteers" }
+            { number: "200+", label: "Youth Mentored" },
+            { number: "15", label: "Annual Events" },
+            { number: "50+", label: "Youth Leaders" }
         ],
-        tag: "Outreach",
-        image: "https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=800"
+        tag: "Youth",
+        image: "https://images.unsplash.com/photo-1523248189027-c70d00a1127a?w=800"
     }
 ];
 
@@ -93,48 +93,48 @@ const testimonials = [
 // ============================================
 const upcomingEvents = [
     {
-        date: "FEB 14",
-        time: "6:00 PM - 9:00 PM",
+        date: "TBD",
+        time: "To Be Determined",
         title: "Family Bingo Night",
         description: "Join us for an exciting evening of bingo, prizes, laughter, and fellowship! Bring the whole family for a night of fun, games, and community. Light refreshments will be served. All ages welcome!",
         tag: "Family Event",
         gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
     },
     {
-        date: "MAR 23",
-        time: "3:00 PM - 7:00 PM",
+        date: "TBD",
+        time: "To Be Determined",
         title: "Outdoor Worship Concert",
         description: "Experience worship under the open sky! Join us for an afternoon of powerful music, testimonies, and celebration. Featuring local worship bands and special guest performers. Bring your lawn chairs and blankets!",
         tag: "Worship",
         gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
     },
     {
-        date: "APR 15",
-        time: "10:00 AM - 2:00 PM",
+        date: "TBD",
+        time: "To Be Determined",
         title: "Community Health Fair",
         description: "Free health screenings, wellness information, and resources for the whole community. Medical professionals will provide blood pressure checks, health education, and connect families with local health services.",
         tag: "Outreach",
         gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
     },
     {
-        date: "MAY 20",
-        time: "6:00 PM - 8:00 PM",
+        date: "TBD",
+        time: "To Be Determined",
         title: "Youth Leadership Summit",
         description: "Empowering the next generation! A dynamic evening designed for teens and young adults featuring inspiring speakers, leadership workshops, and mentorship opportunities. Pizza and refreshments included!",
         tag: "Youth",
         gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
     },
     {
-        date: "JUN 10",
-        time: "9:00 AM - 3:00 PM",
+        date: "TBD",
+        time: "To Be Determined",
         title: "Mission Trip Preparation Day",
         description: "Preparing for our next international mission! Join us for training, team building, and logistics planning. Open to all interested in joining future mission trips to Ghana, Jamaica, and beyond.",
         tag: "Missions",
         gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
     },
     {
-        date: "JUL 4",
-        time: "12:00 PM - 6:00 PM",
+        date: "TBD",
+        time: "To Be Determined",
         title: "Summer BBQ & Baptism Service",
         description: "Celebrate faith and community at our annual summer BBQ! Enjoy great food, games, and witness baptisms at a local park. This is a wonderful opportunity to invite friends and neighbors to experience our church family.",
         tag: "Celebration",
@@ -146,30 +146,27 @@ const upcomingEvents = [
 // GALLERY IMAGES DATA
 // ============================================
 const galleryImages = [
-    { 
-        url: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600", 
-        caption: "Ghana School Renovation - Building Hope" 
-    },
-    { 
-        url: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600", 
-        caption: "Students in Renovated Classrooms" 
-    },
-    { 
-        url: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600", 
-        caption: "Relief Supplies Ready for Jamaica" 
-    },
-    { 
-        url: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600", 
-        caption: "Community Worship & Celebration" 
-    },
-    { 
-        url: "https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=600", 
-        caption: "Food Distribution Ministry" 
-    },
-    { 
-        url: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600", 
-        caption: "Youth Ministry Activities" 
-    }
+    // School Renovation in Ghana
+    { url: "images/IMG-20240520-WA0001.jpg", caption: "Ghana School Renovation", category: "School Renovation in Ghana" },
+    { url: "images/IMG-20240520-WA0002.jpg", caption: "Transformation in Progress", category: "School Renovation in Ghana" },
+    { url: "images/IMG-20251113-WA0000.jpg", caption: "Impactful Work", category: "School Renovation in Ghana" },
+    { url: "images/IMG-20251113-WA0001.jpg", caption: "Classroom Revitalization", category: "School Renovation in Ghana" },
+    { url: "images/IMG-20251113-WA0002.jpg", caption: "A Brighter Future", category: "School Renovation in Ghana" },
+    { url: "images/school1.jpg", caption: "Community Support", category: "School Renovation in Ghana" },
+    { url: "images/school2.jpg", caption: "Completed Section", category: "School Renovation in Ghana" },
+
+    // Relief Barrels to Jamaica
+    { url: "images/20251122_105733.jpg", caption: "Supplies for Jamaica", category: "Relief Barrels to Jamaica" },
+    { url: "images/20251122_105736.jpg", caption: "Packing Relief Barrels", category: "Relief Barrels to Jamaica" },
+    { url: "images/20251122_105740.jpg", caption: "Community Donations", category: "Relief Barrels to Jamaica" },
+    { url: "images/20251122_105747.jpg", caption: "Loading Essential Goods", category: "Relief Barrels to Jamaica" },
+    { url: "images/20251122_105819.jpg", caption: "Mission of Love", category: "Relief Barrels to Jamaica" },
+
+    // Supporting the Chrysalis Center
+    { url: "images/525719304_1150879230407603_4997323419368997525_n.jpg", caption: "Partnership for Recovery", category: "Supporting the Chrysalis Center" },
+    { url: "images/526322233_1150879200407606_9136147409454373293_n.jpg", caption: "Empowering Women", category: "Supporting the Chrysalis Center" },
+    { url: "images/526367260_1150879460407580_181267661225240658_n.jpg", caption: "Hope and Healing", category: "Supporting the Chrysalis Center" },
+    { url: "images/526383774_1150877350407791_355269736133204588_n.jpg", caption: "Community Strength", category: "Supporting the Chrysalis Center" }
 ];
 
 // ============================================

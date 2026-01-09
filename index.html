@@ -15,6 +15,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -42,7 +45,7 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
             <h1 class="hero-title">Helping ordinary people</h1>
             <p class="hero-subtitle">Live extraordinary lives</p>
             <p class="hero-formula">PROMISE+PURPOSE+FAITH+GRATITUDE=DESIRED OUTCOME</p>
@@ -54,7 +57,7 @@
 
     <!-- Welcome Section -->
     <section id="about" class="welcome-section">
-        <div class="container">
+        <div class="container" data-aos="fade-up">
             <h2 class="section-title">WELCOME!</h2>
             <p class="welcome-subtitle">WE ARE GLAD YOU ARE HERE</p>
             <p class="welcome-text">
@@ -70,7 +73,7 @@
     <section class="new-here-section">
         <div class="container">
             <div class="new-here-grid">
-                <div class="new-here-content">
+                <div class="new-here-content" data-aos="fade-right">
                     <h2 class="new-here-title">NEW HERE?</h2>
                     <p class="new-here-text">
                         We are excited to get to know you, learn how we can help, and connect in a powerful way.<br>
@@ -78,7 +81,7 @@
                     </p>
                     <a href="#contact" class="btn btn-accent">Connect Now</a>
                 </div>
-                <div class="new-here-image">
+                <div class="new-here-image" data-aos="fade-left">
                     <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=600" alt="Welcome" loading="lazy">
                 </div>
             </div>
@@ -136,7 +139,7 @@
     <!-- Giving Section -->
     <section id="giving" class="giving">
         <div class="container">
-            <div class="giving-content">
+            <div class="giving-content" data-aos="zoom-in">
                 <h2 class="section-title">PARTNER WITH US</h2>
                 <p class="section-subtitle">Your Generosity Changes Lives</p>
                 
@@ -186,6 +189,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>

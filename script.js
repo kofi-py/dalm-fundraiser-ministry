@@ -15,8 +15,8 @@ function initializeWebsite() {
     renderGallery();
     renderGivingStats();
     initializeSmoothScroll();
-    initializeScrollReveal();
     initializeNavbarScroll();
+    initializeAOS();
 }
 
 // ============================================
@@ -27,7 +27,7 @@ function renderImpactProjects() {
     if (!grid) return;
 
     grid.innerHTML = impactProjects.map((project, index) => `
-        <div class="impact-card reveal" style="animation-delay: ${index * 0.1}s">
+        <div class="impact-card reveal" data-aos="fade-up" data-aos-delay="${index * 100}">
             <div class="impact-image" style="background-image: url('${project.image}')">
                 <div class="impact-overlay">
                     <span class="impact-tag">${project.tag}</span>
@@ -60,7 +60,7 @@ function renderTestimonials() {
     if (!grid) return;
 
     grid.innerHTML = testimonials.map((testimonial, index) => `
-        <div class="testimonial-card reveal" style="animation-delay: ${index * 0.1}s">
+        <div class="testimonial-card reveal" data-aos="zoom-in" data-aos-delay="${index * 100}">
             <p class="testimonial-text">"${testimonial.text}"</p>
             <div class="testimonial-author">
                 <div class="author-avatar">${testimonial.initial}</div>
@@ -81,7 +81,7 @@ function renderEvents() {
     if (!grid) return;
 
     grid.innerHTML = upcomingEvents.map((event, index) => `
-        <div class="event-card reveal" style="animation-delay: ${index * 0.1}s">
+        <div class="event-card reveal" data-aos="fade-up" data-aos-delay="${index * 100}">
             <div class="event-header" style="background: ${event.gradient}">
                 <div class="event-date">${event.date}</div>
                 <div class="event-time">${event.time}</div>
@@ -105,14 +105,32 @@ function renderGallery() {
     const grid = document.getElementById('gallery-grid');
     if (!grid) return;
 
-    grid.innerHTML = galleryImages.map((image, index) => `
-        <div class="gallery-item reveal" style="animation-delay: ${index * 0.05}s">
-            <img src="${image.url}" alt="${image.caption}" loading="lazy">
-            <div class="gallery-caption">
-                <p>${image.caption}</p>
+    // Group images by category
+    const categories = [...new Set(galleryImages.map(img => img.category))];
+    
+    let galleryHTML = '';
+    
+    categories.forEach(category => {
+        const categoryImages = galleryImages.filter(img => img.category === category);
+        
+        galleryHTML += `
+            <div class="gallery-category">
+                <h3 class="gallery-category-title">${category}</h3>
+                <div class="gallery-items-grid">
+                    ${categoryImages.map((image, index) => `
+                        <div class="gallery-item reveal" data-aos="flip-left" data-aos-delay="${index * 50}">
+                            <img src="${image.url}" alt="${image.caption}" loading="lazy">
+                            <div class="gallery-caption">
+                                <p>${image.caption}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
             </div>
-        </div>
-    `).join('');
+        `;
+    });
+
+    grid.innerHTML = galleryHTML;
 }
 
 // ============================================
@@ -217,6 +235,23 @@ function initializeNavbarScroll() {
 function handleEventClick(e, eventTitle) {
     e.preventDefault();
     alert(`Thank you for your interest in ${eventTitle}! Please contact us at the church for more details and registration.`);
+}
+
+// ============================================
+// INITIALIZE AOS
+// ============================================
+function initializeAOS() {
+    AOS.init({
+        duration: 1000,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 120,
+    });
+    
+    // Refresh AOS after a short delay to ensure dynamic content is accounted for
+    setTimeout(() => {
+        AOS.refresh();
+    }, 500);
 }
 
 // ============================================
