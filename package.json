@@ -4,7 +4,8 @@
     "description": "Dimension Abundant Life Ministries Fundraiser Website",
     "scripts": {
         "start": "parcel index.html contact.html",
-        "build": "parcel build index.html contact.html --public-url ./"
+        "build": "parcel build index.html contact.html --public-url ./",
+        "postbuild": "node copy-static-assets.mjs"
     },
     "keywords": [],
     "author": "",
