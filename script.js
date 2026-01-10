@@ -16,6 +16,8 @@ function initializeWebsite() {
     renderGivingStats();
     initializeSmoothScroll();
     initializeNavbarScroll();
+    initializeMobileMenu();
+    initializeContactForm();
     initializeAOS();
 }
 
@@ -156,20 +158,32 @@ function initializeSmoothScroll() {
     
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
             
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const navHeight = document.querySelector('nav').offsetHeight;
-                const targetPosition = targetSection.offsetTop - navHeight;
+            // Only handle internal anchor links on the current page
+            if (href.startsWith('#')) {
+                const targetId = href;
+                const targetSection = document.querySelector(targetId);
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                if (targetSection) {
+                    e.preventDefault();
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const menuToggle = document.querySelector('.menu-toggle');
+                    const navLinksContainer = document.querySelector('.nav-links');
+                    if (navLinksContainer.classList.contains('active')) {
+                        navLinksContainer.classList.remove('active');
+                    }
+                }
             }
+            // For other links (like contact.html or external sites), let them work normally
         });
     });
 }
@@ -235,6 +249,63 @@ function initializeNavbarScroll() {
 function handleEventClick(e, eventTitle) {
     e.preventDefault();
     alert(`Thank you for your interest in ${eventTitle}! Please contact us at the church for more details and registration.`);
+}
+
+// ============================================
+// MOBILE MENU TOGGLE
+// ============================================
+function initializeMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            
+            // Animate hamburger icon if needed
+            const icon = menuToggle.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+}
+
+// ============================================
+// CONTACT FORM HANDLING
+// ============================================
+function initializeContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    const successMessage = document.getElementById('contact-success');
+    
+    if (contactForm && successMessage) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.btn-submit');
+            const originalText = submitBtn.innerText;
+            
+            // Show loading state
+            submitBtn.innerText = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission delay
+            // In a production environment, you would use fetch() to send data to a backend or service like Formspree
+            setTimeout(() => {
+                contactForm.style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                console.log('Form submitted successfully (simulated)');
+            }, 1500);
+        });
+    }
 }
 
 // ============================================
